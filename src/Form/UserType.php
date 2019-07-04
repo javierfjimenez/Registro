@@ -2,29 +2,30 @@
 
 namespace App\Form;
 
-use App\Entity\Coordinador;
+use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CoordinadorType extends AbstractType
+class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('nombre')
             ->add('apellido')
-            ->add('cedula')
-            ->add('mesa_electoral')
+            ->add('password')
+            ->add('direccion')
             ->add('telefono')
-            ->add('correo')
+            ->add('cedula')
+            ->add('role')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Coordinador::class,
+            'data_class' => User::class,
         ]);
     }
 }

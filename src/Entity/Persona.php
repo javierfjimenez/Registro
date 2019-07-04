@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\CoordinadorRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\PersonaRepository")
  */
-class Coordinador
+class Persona
 {
     /**
      * @ORM\Id()
@@ -29,22 +29,32 @@ class Coordinador
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $cedula;
+    private $mesa_electoral;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $mesa_electoral;
+    private $direccion;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
     private $telefono;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
+    private $cedula;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
     private $correo;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $persona_id;
 
     public function getId(): ?int
     {
@@ -75,18 +85,6 @@ class Coordinador
         return $this;
     }
 
-    public function getCedula(): ?string
-    {
-        return $this->cedula;
-    }
-
-    public function setCedula(string $cedula): self
-    {
-        $this->cedula = $cedula;
-
-        return $this;
-    }
-
     public function getMesaElectoral(): ?string
     {
         return $this->mesa_electoral;
@@ -99,14 +97,38 @@ class Coordinador
         return $this;
     }
 
-    public function getTelefono(): ?int
+    public function getDireccion(): ?string
+    {
+        return $this->direccion;
+    }
+
+    public function setDireccion(string $direccion): self
+    {
+        $this->direccion = $direccion;
+
+        return $this;
+    }
+
+    public function getTelefono(): ?string
     {
         return $this->telefono;
     }
 
-    public function setTelefono(int $telefono): self
+    public function setTelefono(string $telefono): self
     {
         $this->telefono = $telefono;
+
+        return $this;
+    }
+
+    public function getCedula(): ?string
+    {
+        return $this->cedula;
+    }
+
+    public function setCedula(string $cedula): self
+    {
+        $this->cedula = $cedula;
 
         return $this;
     }
@@ -119,6 +141,18 @@ class Coordinador
     public function setCorreo(string $correo): self
     {
         $this->correo = $correo;
+
+        return $this;
+    }
+
+    public function getPersonaId(): ?int
+    {
+        return $this->persona_id;
+    }
+
+    public function setPersonaId(int $persona_id): self
+    {
+        $this->persona_id = $persona_id;
 
         return $this;
     }

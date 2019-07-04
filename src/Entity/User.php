@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\DirigenteRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class Dirigente
+class User
 {
     /**
      * @ORM\Id()
@@ -20,6 +20,11 @@ class Dirigente
      * @ORM\Column(type="string", length=255)
      */
     private $nombre;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $apellido;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -41,6 +46,11 @@ class Dirigente
      */
     private $cedula;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $role;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -54,6 +64,18 @@ class Dirigente
     public function setNombre(string $nombre): self
     {
         $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    public function getApellido(): ?string
+    {
+        return $this->apellido;
+    }
+
+    public function setApellido(string $apellido): self
+    {
+        $this->apellido = $apellido;
 
         return $this;
     }
@@ -102,6 +124,18 @@ class Dirigente
     public function setCedula(string $cedula): self
     {
         $this->cedula = $cedula;
+
+        return $this;
+    }
+
+    public function getRole(): ?string
+    {
+        return $this->role;
+    }
+
+    public function setRole(string $role): self
+    {
+        $this->role = $role;
 
         return $this;
     }
