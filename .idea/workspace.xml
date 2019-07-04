@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="e7e4de37-64f2-4d59-a824-c20aeb12ff9e" name="Default Changelist" comment="">
 <<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/.idea/Registro.iml" afterDir="false" />
@@ -16,6 +17,9 @@
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
 >>>>>>> jv
     </list>
+=======
+    <list default="true" id="e7e4de37-64f2-4d59-a824-c20aeb12ff9e" name="Default Changelist" comment="" />
+>>>>>>> jv
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,7 +274,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/apache-pack" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -348,15 +352,20 @@
       <updated>1562158345771</updated>
       <workItem from="1562158347302" duration="9354000" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <workItem from="1562256642384" duration="5931000" />
       <workItem from="1562268295128" duration="1021000" />
 =======
       <workItem from="1562256642384" duration="9748000" />
 >>>>>>> jv
+=======
+      <workItem from="1562256642384" duration="10261000" />
+>>>>>>> jv
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
     <option name="totallyTimeSpent" value="16319000" />
   </component>
@@ -364,6 +373,9 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
 =======
     <option name="totallyTimeSpent" value="19102000" />
+=======
+    <option name="totallyTimeSpent" value="19615000" />
+>>>>>>> jv
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
