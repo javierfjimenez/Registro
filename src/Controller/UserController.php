@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 /**
  * @Route("/user")
@@ -23,6 +24,22 @@ class UserController extends AbstractController
         return $this->render('user/index.html.twig', [
             'users' => $userRepository->findAll(),
         ]);
+    }
+
+    /**
+     * @Route("/login")
+     *
+     */
+    public function login(AuthenticationUtils $authenticationUtils ){
+        $error = $authenticationUtils->getLastAuthenticationError();
+        $lastUser = $authenticationUtils->getLastUsername();
+
+        return $this->render('user/login.html.twig',array(
+            'error'    =>$error,
+            'lastUser' =>$lastUser
+            ));
+
+
     }
 
     /**
