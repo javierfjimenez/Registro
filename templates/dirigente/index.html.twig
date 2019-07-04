@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dirigente index{% endblock %}
+
+{% block body %}
+    <h1>Dirigente index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Password</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+                <th>Cedula</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dirigente in dirigentes %}
+            <tr>
+                <td>{{ dirigente.id }}</td>
+                <td>{{ dirigente.nombre }}</td>
+                <td>{{ dirigente.password }}</td>
+                <td>{{ dirigente.direccion }}</td>
+                <td>{{ dirigente.telefono }}</td>
+                <td>{{ dirigente.cedula }}</td>
+                <td>
+                    <a href="{{ path('dirigente_show', {'id': dirigente.id}) }}">show</a>
+                    <a href="{{ path('dirigente_edit', {'id': dirigente.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('dirigente_new') }}">Create new</a>
+{% endblock %}

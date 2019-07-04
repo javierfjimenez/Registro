@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dirigente{% endblock %}
+
+{% block body %}
+    <h1>Dirigente</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ dirigente.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ dirigente.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ dirigente.password }}</td>
+            </tr>
+            <tr>
+                <th>Direccion</th>
+                <td>{{ dirigente.direccion }}</td>
+            </tr>
+            <tr>
+                <th>Telefono</th>
+                <td>{{ dirigente.telefono }}</td>
+            </tr>
+            <tr>
+                <th>Cedula</th>
+                <td>{{ dirigente.cedula }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('dirigente_index') }}">back to list</a>
+
+    <a href="{{ path('dirigente_edit', {'id': dirigente.id}) }}">edit</a>
+
+    {{ include('dirigente/_delete_form.html.twig') }}
+{% endblock %}
