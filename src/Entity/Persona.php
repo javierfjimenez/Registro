@@ -15,6 +15,14 @@ class Persona
      * @ORM\Column(type="integer")
      */
     private $id;
+    /**
+     *
+     * @var User
+     * @ORM\ManyToOne(targetEntity="App\Entity\User",inversedBy="personas")
+     * @ORM\JoinColumn(nullable=false)
+     *
+     */
+    private $user;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -155,5 +163,15 @@ class Persona
         $this->persona_id = $persona_id;
 
         return $this;
+    }
+
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+    public function setUser(User $user): void
+    {
+        $this->user = $user;
     }
 }
