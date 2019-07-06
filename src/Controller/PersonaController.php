@@ -3,49 +3,60 @@
 namespace App\Controller;
 
 use App\Entity\Persona;
+use App\Entity\Task;
 use App\Form\PersonaType;
+use App\Form\TaskType;
 use App\Repository\PersonaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 
-/**
- * @Route("/persona")
- */
+
 class PersonaController extends AbstractController
 {
     /**
-     * @Route("/", name="persona_index", methods={"GET"})
+     * @Route("/persona", name="persona", methods={"GET","POST"})
      */
-    public function index(PersonaRepository $personaRepository): Response
+    public function index()
     {
+        $em = $this->getDoctrine()->getManager();
+        $personaRepository = $this->getDoctrine()->getRepository(Persona::class);
+        $personas = $personaRepository->findBy([],['id' => 'DESC' ]);
+
+
         return $this->render('persona/index.html.twig', [
-            'personas' => $personaRepository->findAll(),
+            'controller_name' => 'PersonaController',
+            'personas' => $personas,
         ]);
     }
 
     /**
      * @Route("/new", name="persona_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+
+    public function new(Request $request, UserInterface $user): Response
     {
         $persona = new Persona();
         $form = $this->createForm(PersonaType::class, $persona);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($persona);
-            $entityManager->flush();
+            $persona->setCreatedAt(new \DateTime());
+            $persona->setUser($user);
 
-            return $this->redirectToRoute('persona_index');
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($persona);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('task_detail', ['id' => $persona->getId()]));
+
         }
+        return $this->render('persona/new.html.twig', array(
+            'form' => $form->createView()
 
-        return $this->render('persona/new.html.twig', [
-            'persona' => $persona,
-            'form' => $form->createView(),
-        ]);
+        ));
     }
 
     /**

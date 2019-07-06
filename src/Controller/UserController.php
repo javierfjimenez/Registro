@@ -4,110 +4,58 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
-use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
-/**
- * @Route("/user")
- */
 class UserController extends AbstractController
 {
     /**
-     * @Route("/", name="user_index", methods={"GET"})
+     * @Route("user/new", name="user_new", methods={"GET"})
      */
-    public function index(UserRepository $userRepository): Response
+    public function register(Request $request, UserPasswordEncoderInterface $encoder)
     {
-        return $this->render('user/index.html.twig', [
-            'users' => $userRepository->findAll(),
-        ]);
-    }
-
-    /**
-     * @Route("/login")
-     *
-     */
-    public function login(AuthenticationUtils $authenticationUtils ){
-        $error = $authenticationUtils->getLastAuthenticationError();
-        $lastUser = $authenticationUtils->getLastUsername();
-
-        return $this->render('user/login.html.twig',array(
-            'error'    =>$error,
-            'lastUser' =>$lastUser
-            ));
-
-
-    }
-
-    /**
-     * @Route("/new", name="user_new", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
-    {
+        //Creando el Formulario
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
+
+        //Rellernar el Objeto con los Datos del Formulario
         $form->handleRequest($request);
 
+        //Verificando si los Datos fueron fueron enviados
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
 
-            return $this->redirectToRoute('user_index');
+            //Modificando el objeto para guardarlo
+            $user->setRole('ROLE_USER');
+            $encoded = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($encoded);
+
+            //Guardar Usuario
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+
+            return $this->redirectToRoute('persona');
         }
 
-        return $this->render('user/new.html.twig', [
-            'user' => $user,
-            'form' => $form->createView(),
+        return $this->render('user/index.html.twig', [
+            'form' => $form->createView()
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="user_show", methods={"GET"})
-     */
-    public function show(User $user): Response
+    public function login(AuthenticationUtils $authenticationUtils)
     {
-        return $this->render('user/show.html.twig', [
-            'user' => $user,
-        ]);
-    }
+        //Consegir el error si se produce al logear usuario
+        $error = $authenticationUtils->getLastAuthenticationError();
+        //Conseguir el ultimo usuario logeado
+        $lastUserName = $authenticationUtils->getLastUsername();
 
-    /**
-     * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
-     */
-    public function edit(Request $request, User $user): Response
-    {
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('user_index', [
-                'id' => $user->getId(),
-            ]);
-        }
-
-        return $this->render('user/edit.html.twig', [
-            'user' => $user,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="user_delete", methods={"DELETE"})
-     */
-    public function delete(Request $request, User $user): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($user);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('user_index');
+        return $this->render('user/login.html.twig', array(
+            'error' => $error,
+            'lastUser' => $lastUserName
+        ));
     }
 }
