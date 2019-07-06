@@ -1,13 +1,29 @@
 security:
+    encoders:
+        App\Entity\User:
+            algorithm: auto
+            cost: 4
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         in_memory: { memory: ~ }
+        proveedor:
+            entity:
+                class: App\Entity\User
+                property: nombre
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: true
+            form_login:
+                login_path: login
+                check_path: login
+                provider: proveedor
+
+            logout:
+                path: /logout
+                target: /
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
