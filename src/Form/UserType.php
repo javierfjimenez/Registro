@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -22,7 +23,7 @@ class UserType extends AbstractType
                 'label' => 'Apellido',
                 'attr' => ['class' => 'form-control']
             ))
-            ->add('password', TextType::class, array(
+            ->add('password', PasswordType::class, array(
                 'label' => 'Contraseña',
                 'attr' => ['class' => 'form-control']
             ))
@@ -38,11 +39,7 @@ class UserType extends AbstractType
                 'label' => 'Cédula',
                 'attr' => ['class' => 'form-control']
             ))
-            ->add('role', TextType::class, array(
-                'label' => 'Role',
-                'attr' => ['class' => 'form-control']
-
-            ))->add('submit', SubmitType::class, array(
+            ->add('submit', SubmitType::class, array(
                 'label' => 'Guardar',
                 'attr' => ['class' => 'btn btn-primary mt-3']
             ));

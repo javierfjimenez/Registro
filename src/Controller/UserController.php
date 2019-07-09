@@ -13,7 +13,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class UserController extends AbstractController
 {
     /**
-     * @Route("user/new", name="user_new", methods={"GET"})
+     * @Route("user/new", name="user_new", methods={"GET","POST"})
      */
     public function register(Request $request, UserPasswordEncoderInterface $encoder)
     {
@@ -45,6 +45,10 @@ class UserController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/login",name="login")
+     *
+     */
     public function login(AuthenticationUtils $authenticationUtils)
     {
         //Consegir el error si se produce al logear usuario

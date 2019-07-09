@@ -16,7 +16,6 @@
                 <th>Telefono</th>
                 <th>Cedula</th>
                 <th>Correo</th>
-                <th>Persona_id</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -31,7 +30,6 @@
                 <td>{{ persona.telefono }}</td>
                 <td>{{ persona.cedula }}</td>
                 <td>{{ persona.correo }}</td>
-                <td>{{ persona.personaId }}</td>
                 <td>
                     <a href="{{ path('persona_show', {'id': persona.id}) }}">show</a>
                     <a href="{{ path('persona_edit', {'id': persona.id}) }}">edit</a>

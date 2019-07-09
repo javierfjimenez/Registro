@@ -1,10 +1,9 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
-
 login:
-  path: /login
+  path: /
   controller: App\Controller\UserController::login
 
 logout:
-  path: /
+  path: /logout
