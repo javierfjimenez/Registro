@@ -21,7 +21,16 @@ class PersonaController extends AbstractController
     public function index()
     {
         $em = $this->getDoctrine()->getManager();
+        $users_repo = $this->getDoctrine()->getRepository(User::class);
+        $users = $users_repo->findAll();
 
+        foreach ($users as $user) {
+            echo $user->getNombre();
+
+            foreach ($user->getPersonas() as $persona) {
+                echo $persona->getNombre();
+            }
+        }
 
         //$personas = $personaRepository->findBy([], ['id' => 'DESC']);
 

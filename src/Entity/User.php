@@ -155,15 +155,6 @@ class User implements UserInterface
     }
 
     /**
-     * @return Collection|Persona[]
-     */
-    public function getPersonas()
-    {
-        return $this->personas;
-    }
-    
-
-    /**
      * Returns the roles granted to the user.
      *
      *     public function getRoles()
@@ -180,7 +171,6 @@ class User implements UserInterface
     public function getRoles()
     {
         // TODO: Implement getRoles() method.
-        return array('ROLE_USER');
     }
 
     /**
@@ -193,7 +183,6 @@ class User implements UserInterface
     public function getSalt()
     {
         // TODO: Implement getSalt() method.
-        return null;
     }
 
     /**
@@ -204,7 +193,6 @@ class User implements UserInterface
     public function getUsername()
     {
         // TODO: Implement getUsername() method.
-        return $this->nombre;
     }
 
     /**
@@ -216,6 +204,14 @@ class User implements UserInterface
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.
+    }
+
+    /**
+     * @return Collection|Persona[]
+     */
+    public function getPersonas(): Collection
+    {
+        return $this->personas;
     }
 
     public function addPersona(Persona $persona): self
@@ -235,37 +231,6 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($persona->getUser() === $this) {
                 $persona->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Persona[]
-     */
-    public function getPersonaId(): Collection
-    {
-        return $this->personas;
-    }
-
-    public function addPersonaId(Persona $personas): self
-    {
-        if (!$this->personas->contains($personas)) {
-            $this->personas[] = $personas;
-            $personas->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removePersonaId(Persona $personas): self
-    {
-        if ($this->$personas->contains($personas)) {
-            $this->$personas->removeElement($personas);
-            // set the owning side to null (unless already changed)
-            if ($personas->getUser() === $this) {
-                $personas->setUser(null);
             }
         }
 
