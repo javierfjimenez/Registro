@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Persona;
 use App\Entity\Task;
+use App\Entity\User;
 use App\Form\PersonaType;
 use App\Form\TaskType;
 use App\Repository\PersonaRepository;
@@ -33,19 +34,17 @@ class PersonaController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="persona_new", methods={"GET","POST"})
+     * @Route("persona/new", name="persona_new", methods={"GET","POST"})
      */
 
-    public function new(Request $request, UserInterface $user): Response
+    public function new(Request $request): Response
     {
         $persona = new Persona();
         $form = $this->createForm(PersonaType::class, $persona);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $persona->setCreatedAt(new \DateTime());
-            $persona->setUser($user);
-
+            $persona->setUser($this->getUser());
             $em = $this->getDoctrine()->getManager();
             $em->persist($persona);
             $em->flush();
