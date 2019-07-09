@@ -24,22 +24,9 @@
 =======
     <list default="true" id="e7e4de37-64f2-4d59-a824-c20aeb12ff9e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PersonaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PersonaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/persona/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/persona/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/persona/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/persona/show.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/show.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/PersonaType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PersonaType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/persona/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/persona/new.html.twig" afterDir="false" />
     </list>
 >>>>>>> jv
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,6 +39,7 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
 <<<<<<< HEAD
@@ -119,19 +107,23 @@
           </provider>
         </entry>
       </file>
+=======
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+>>>>>>> jv
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/PersonaController.php">
+        <entry file="file://$PROJECT_DIR$/src/Form/PersonaType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+            <state relative-caret-position="731">
+              <caret line="56" column="1" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
               <folding>
-                <element signature="e#34#57#0#PHP" expanded="true" />
+                <element signature="e#28#51#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="442">
@@ -189,6 +181,8 @@
 >>>>>>> jv
 =======
       <file pinned="false" current-in-tab="false">
+=======
+>>>>>>> jv
         <entry file="file://$PROJECT_DIR$/templates/user/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
@@ -233,7 +227,6 @@
         <option value="$PROJECT_DIR$/src/Entity/Dirigente.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/config/routes.yaml" />
-        <option value="$PROJECT_DIR$/src/Entity/Persona.php" />
         <option value="$PROJECT_DIR$/config/packages/security.yaml" />
         <option value="$PROJECT_DIR$/templates/user/login.html.twig" />
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
@@ -241,7 +234,10 @@
         <option value="$PROJECT_DIR$/templates/user/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/src/Form/UserType.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Persona.php" />
         <option value="$PROJECT_DIR$/src/Controller/PersonaController.php" />
+        <option value="$PROJECT_DIR$/templates/persona/new.html.twig" />
+        <option value="$PROJECT_DIR$/src/Form/PersonaType.php" />
       </list>
     </option>
   </component>
@@ -380,7 +376,15 @@
               <item name="Registro" type="462c0819:PsiDirectoryNode" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+>>>>>>> jv
+=======
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Registro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Registro" type="462c0819:PsiDirectoryNode" />
 >>>>>>> jv
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -400,8 +404,25 @@
               <item name="Registro" type="b2602c69:ProjectViewProjectNode" />
               <item name="Registro" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Registro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Registro" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Form" type="462c0819:PsiDirectoryNode" />
 >>>>>>> jv
+            </path>
+            <path>
+              <item name="Registro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Registro" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Registro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Registro" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="persona" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -412,7 +433,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Tareas" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -459,12 +480,19 @@
 =======
       <workItem from="1562256642384" duration="10931000" />
       <workItem from="1562331291313" duration="3375000" />
+<<<<<<< HEAD
       <workItem from="1562418323246" duration="10830000" />
+>>>>>>> jv
+=======
+      <workItem from="1562418323246" duration="10943000" />
+      <workItem from="1562589454252" duration="695000" />
+      <workItem from="1562677461910" duration="2356000" />
 >>>>>>> jv
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -480,6 +508,9 @@
 =======
     <option name="totallyTimeSpent" value="34490000" />
 >>>>>>> jv
+=======
+    <option name="totallyTimeSpent" value="37654000" />
+>>>>>>> jv
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -487,9 +518,13 @@
 >>>>>>> jv
     <layout>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18078668" />
 =======
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18421052" />
+>>>>>>> jv
+=======
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1895811" />
 >>>>>>> jv
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -575,6 +610,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/templates/persona/new.html.twig">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -599,6 +635,12 @@
     <entry file="file://$PROJECT_DIR$/templates/persona/edit.html.twig">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+=======
+    <entry file="file://$PROJECT_DIR$/templates/user/new.html.twig" />
+    <entry file="file://$PROJECT_DIR$/templates/persona/_delete_form.html.twig" />
+    <entry file="file://$PROJECT_DIR$/templates/persona/_form.html.twig" />
+    <entry file="file://$PROJECT_DIR$/templates/persona/edit.html.twig" />
+>>>>>>> jv
     <entry file="file://$PROJECT_DIR$/templates/persona/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -635,6 +677,7 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Form/UserType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -662,23 +705,12 @@
         <state relative-caret-position="357">
           <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
 >>>>>>> jv
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+=======
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
-          <folding>
-            <element signature="e#30#78#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/user/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="442">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+>>>>>>> jv
         </state>
       </provider>
     </entry>
@@ -689,22 +721,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+    <entry file="file://$PROJECT_DIR$/templates/user/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/UserType.php">
+    <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="46" column="59" selection-start-line="46" selection-start-column="59" selection-end-line="46" selection-end-column="59" />
+        <state relative-caret-position="357">
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="42" column="40" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="40" />
+          <folding>
+            <element signature="e#34#54#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+          <folding>
+            <element signature="e#30#78#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Persona.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
         <state relative-caret-position="255">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
@@ -724,29 +777,39 @@
 =======
         <state relative-caret-position="2652">
           <caret line="156" column="5" selection-start-line="156" selection-start-column="5" selection-end-line="156" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/PersonaType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+=======
+        <state relative-caret-position="289">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
 >>>>>>> jv
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="40" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="40" />
-          <folding>
-            <element signature="e#34#54#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/PersonaController.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="340">
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+>>>>>>> jv
+=======
+        <state relative-caret-position="153">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+          <folding>
+            <element signature="e#34#57#0#PHP" expanded="true" />
+          </folding>
+>>>>>>> jv
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/persona/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         <state relative-caret-position="187">
@@ -765,8 +828,26 @@
 =======
         <state relative-caret-position="612">
           <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+=======
+        <state relative-caret-position="459">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/UserType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="31" column="14" lean-forward="true" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/PersonaType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="56" column="1" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
+>>>>>>> jv
           <folding>
-            <element signature="e#34#57#0#PHP" expanded="true" />
+            <element signature="e#28#51#0#PHP" expanded="true" />
           </folding>
 >>>>>>> jv
         </state>

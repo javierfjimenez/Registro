@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Persona;
+
 use App\Form\PersonaType;
 use App\Repository\PersonaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,12 +22,7 @@ class PersonaController extends AbstractController
     {
         $em = $this->getDoctrine()->getManager();
         $personaRepository = $this->getDoctrine()->getRepository(Persona::class);
-        $personas = $personaRepository->findAll();
-        foreach ($personas as $persona){
-            echo "<h1>{$persona->getNombre()} {$persona} </h1>";
-
-        }
-       // $personas = $personaRepository->findBy([], ['id' => 'DESC']);
+        $personas = $personaRepository->findBy([], ['id' => 'DESC']);
 
 
         return $this->render('persona/index.html.twig', [
@@ -36,9 +32,7 @@ class PersonaController extends AbstractController
     }
 
     /**
-     *
-     * @Route("persona/detail/{id}", name="persona_detail"))
-     *
+     * @Route("persona/new", name="persona_new", methods={"GET","POST"})
      */
     public function details(Persona $persona)
     {
@@ -56,14 +50,14 @@ class PersonaController extends AbstractController
     /**
      * @Route("persona/new", name="persona_new")
      */
-    public function createPersona(Request $request, UserInterface $user)
+    public function new(Request $request): Response
     {
         $persona = new Persona();
         $form = $this->createForm(PersonaType::class, $persona);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $persona->setUser($user);
+            $persona->setUser($this->getUser());
             $em = $this->getDoctrine()->getManager();
             $em->persist($persona);
             $em->flush();
