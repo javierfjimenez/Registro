@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Persona;
 
 use App\Form\PersonaType;
-use App\Repository\PersonaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,7 +21,11 @@ class PersonaController extends AbstractController
     {
         $em = $this->getDoctrine()->getManager();
         $personaRepository = $this->getDoctrine()->getRepository(Persona::class);
-        $personas = $personaRepository->findBy([], ['id' => 'DESC']);
+        $personas = $personaRepository->findAll();
+        foreach ($personas as $persona){
+            echo $persona->getNombre();
+        }
+        //$personas = $personaRepository->findBy([], ['id' => 'DESC']);
 
 
         return $this->render('persona/index.html.twig', [
@@ -50,7 +53,7 @@ class PersonaController extends AbstractController
     /**
      * @Route("persona/new", name="persona_new")
      */
-    public function new(Request $request): Response
+    public function new(Request $request, UserInterface $user): Response
     {
         $persona = new Persona();
         $form = $this->createForm(PersonaType::class, $persona);

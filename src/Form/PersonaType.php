@@ -6,6 +6,7 @@ use App\Entity\Persona;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,16 +16,7 @@ class PersonaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-<<<<<<< HEAD
-            ->add('nombre')
-            ->add('apellido')
-            ->add('mesa_electoral')
-            ->add('direccion')
-            ->add('telefono')
-            ->add('cedula')
-            ->add('correo')
-        ;
-=======
+
             ->add('nombre', TextType::class, array(
                 'label' => 'Nombre',
                 'attr' => ['class' => 'form-control']
@@ -53,10 +45,10 @@ class PersonaType extends AbstractType
                 'label' => 'Correo',
                 'attr' => ['class' => 'form-control']
             ))
-            ->add('submit', ButtonType::class, array(
+            ->add('submit', SubmitType::class, array(
+                'label' => 'Guardar',
                 'attr' => ['class' => 'btn btn-primary mt-3']
             ));
->>>>>>> jv
     }
 
     public function configureOptions(OptionsResolver $resolver)
