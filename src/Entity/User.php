@@ -4,9 +4,8 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Symfony\Component\Validator\Constraints as Assert;
-
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Array_;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -24,22 +23,22 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nombre;
+    private $role;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $apellido;
+    private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $password;
+    private $lastname;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $direccion;
+    private $mesaelectoral;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -50,15 +49,22 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $cedula;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $correo;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $password;
+
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Persona",mappedBy="user")
      *
      */
     private $personas;
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $role;
 
     public function __construct()
     {
@@ -70,50 +76,50 @@ class User implements UserInterface
         return $this->id;
     }
 
-    public function getNombre(): ?string
+    public function getRole(): ?string
     {
-        return $this->nombre;
+        return $this->role;
     }
 
-    public function setNombre(string $nombre): self
+    public function setRole(string $role): self
     {
-        $this->nombre = $nombre;
+        $this->role = $role;
 
         return $this;
     }
 
-    public function getApellido(): ?string
+    public function getName(): ?string
     {
-        return $this->apellido;
+        return $this->name;
     }
 
-    public function setApellido(string $apellido): self
+    public function setName(string $name): self
     {
-        $this->apellido = $apellido;
+        $this->name = $name;
 
         return $this;
     }
 
-    public function getPassword(): ?string
+    public function getLastname(): ?string
     {
-        return $this->password;
+        return $this->lastname;
     }
 
-    public function setPassword(string $password): self
+    public function setLastname(string $lastname): self
     {
-        $this->password = $password;
+        $this->lastname = $lastname;
 
         return $this;
     }
 
-    public function getDireccion(): ?string
+    public function getMesaelectoral(): ?string
     {
-        return $this->direccion;
+        return $this->mesaelectoral;
     }
 
-    public function setDireccion(string $direccion): self
+    public function setMesaelectoral(string $mesaelectoral): self
     {
-        $this->direccion = $direccion;
+        $this->mesaelectoral = $mesaelectoral;
 
         return $this;
     }
@@ -142,27 +148,31 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getRole(): ?string
+    public function getCorreo(): ?string
     {
-        return $this->role;
+        return $this->correo;
     }
 
-    public function setRole(string $role): self
+    public function setCorreo(string $correo): self
     {
-        $this->role = $role;
+        $this->correo = $correo;
 
         return $this;
     }
 
-    /**
-     * @return Collection|Persona[]
-     */
-    public function getPersonas()
+    public function getPassword(): ?string
     {
-        return $this->personas;
+        return $this->password;
     }
-    
 
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    
     /**
      * Returns the roles granted to the user.
      *
@@ -204,7 +214,7 @@ class User implements UserInterface
     public function getUsername()
     {
         // TODO: Implement getUsername() method.
-        return $this->nombre;
+        return $this->email;
     }
 
     /**
@@ -216,6 +226,14 @@ class User implements UserInterface
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.
+    }
+
+    /**
+     * @return Collection|Persona[]
+     */
+    public function getPersonas(): Collection
+    {
+        return $this->personas;
     }
 
     public function addPersona(Persona $persona): self
@@ -235,37 +253,6 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($persona->getUser() === $this) {
                 $persona->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Persona[]
-     */
-    public function getPersonaId(): Collection
-    {
-        return $this->personas;
-    }
-
-    public function addPersonaId(Persona $personas): self
-    {
-        if (!$this->personas->contains($personas)) {
-            $this->personas[] = $personas;
-            $personas->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removePersonaId(Persona $personas): self
-    {
-        if ($this->$personas->contains($personas)) {
-            $this->$personas->removeElement($personas);
-            // set the owning side to null (unless already changed)
-            if ($personas->getUser() === $this) {
-                $personas->setUser(null);
             }
         }
 

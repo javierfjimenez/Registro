@@ -15,7 +15,9 @@ class Persona
      * @ORM\Column(type="integer")
      */
     private $id;
+
     /**
+     *
      * @var User
      * @ORM\ManyToOne(targetEntity="App\Entity\User",inversedBy="personas")
      * @ORM\JoinColumn(nullable=false)
@@ -26,17 +28,12 @@ class Persona
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nombre;
+    private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $apellido;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $mesa_electoral;
+    private $lastname;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -58,44 +55,55 @@ class Persona
      */
     private $correo;
 
-
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNombre(): ?string
+    public function getUser(): ?string
     {
-        return $this->nombre;
+        return $this->user;
     }
 
-    public function setNombre(string $nombre): self
+    public function setUser(string $user): self
     {
-        $this->nombre = $nombre;
+        $this->user = $user;
 
         return $this;
     }
 
-    public function getApellido(): ?string
+    public function getName(): ?string
     {
-        return $this->apellido;
+        return $this->name;
     }
 
-    public function setApellido(string $apellido): self
+    public function setName(string $name): self
     {
-        $this->apellido = $apellido;
+        $this->name = $name;
 
         return $this;
     }
 
-    public function getMesaElectoral(): ?string
+    public function getLastname(): ?string
     {
-        return $this->mesa_electoral;
+        return $this->lastname;
     }
 
-    public function setMesaElectoral(string $mesa_electoral): self
+    public function setLastname(string $lastname): self
     {
-        $this->mesa_electoral = $mesa_electoral;
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    public function getMesaelectoral(): ?string
+    {
+        return $this->mesaelectoral;
+    }
+
+    public function setMesaelectoral(string $mesaelectoral): self
+    {
+        $this->mesaelectoral = $mesaelectoral;
 
         return $this;
     }
@@ -144,18 +152,6 @@ class Persona
     public function setCorreo(string $correo): self
     {
         $this->correo = $correo;
-
-        return $this;
-    }
-
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
 
         return $this;
     }
