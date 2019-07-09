@@ -155,20 +155,13 @@ class User implements UserInterface
     }
 
     /**
-     * @return mixed
+     * @return Collection|Persona[]
      */
     public function getPersonas()
     {
         return $this->personas;
     }
-
-    /**
-     * @param mixed $personas
-     */
-    public function setPersonas($personas): void
-    {
-        $this->personas = $personas;
-    }
+    
 
     /**
      * Returns the roles granted to the user.
