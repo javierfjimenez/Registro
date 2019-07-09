@@ -15,16 +15,7 @@ class PersonaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-<<<<<<< HEAD
-            ->add('nombre')
-            ->add('apellido')
-            ->add('mesa_electoral')
-            ->add('direccion')
-            ->add('telefono')
-            ->add('cedula')
-            ->add('correo')
-        ;
-=======
+
             ->add('nombre', TextType::class, array(
                 'label' => 'Nombre',
                 'attr' => ['class' => 'form-control']
@@ -56,7 +47,6 @@ class PersonaType extends AbstractType
             ->add('submit', ButtonType::class, array(
                 'attr' => ['class' => 'btn btn-primary mt-3']
             ));
->>>>>>> jv
     }
 
     public function configureOptions(OptionsResolver $resolver)

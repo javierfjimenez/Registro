@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Persona;
 
+use App\Entity\User;
 use App\Form\PersonaType;
 use App\Repository\PersonaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,13 +22,20 @@ class PersonaController extends AbstractController
     public function index()
     {
         $em = $this->getDoctrine()->getManager();
-        $personaRepository = $this->getDoctrine()->getRepository(Persona::class);
-        $personas = $personaRepository->findBy([], ['id' => 'DESC']);
+        $user_repo = $this->getDoctrine()->getRepository(User::class);
+        $users = $user_repo->findAll();
+        foreach ($users as $user){
+            echo $user->getNombre().$user->getApellido();
+
+            foreach ($users->getPersonas() as $persona){
+                echo $persona->getNombre();
+            }
+        }
+        //$personas = $personaRepository->findBy([], ['id' => 'DESC']);
 
 
         return $this->render('persona/index.html.twig', [
             'controller_name' => 'PersonaController',
-            'personas' => $personas,
         ]);
     }
 
