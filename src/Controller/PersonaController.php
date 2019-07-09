@@ -3,9 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Persona;
-use App\Entity\Task;
 use App\Form\PersonaType;
-use App\Form\TaskType;
 use App\Repository\PersonaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,7 +21,12 @@ class PersonaController extends AbstractController
     {
         $em = $this->getDoctrine()->getManager();
         $personaRepository = $this->getDoctrine()->getRepository(Persona::class);
-        $personas = $personaRepository->findBy([],['id' => 'DESC' ]);
+        $personas = $personaRepository->findAll();
+        foreach ($personas as $persona){
+            echo "<h1>{$persona->getNombre()} {$persona} </h1>";
+
+        }
+       // $personas = $personaRepository->findBy([], ['id' => 'DESC']);
 
 
         return $this->render('persona/index.html.twig', [
@@ -33,25 +36,39 @@ class PersonaController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="persona_new", methods={"GET","POST"})
+     *
+     * @Route("persona/detail/{id}", name="persona_detail"))
+     *
      */
+    public function details(Persona $persona)
+    {
+        if (!$persona) {
 
-    public function new(Request $request, UserInterface $user): Response
+            return $this->redirectToRoute('persona');
+        } else {
+
+            return $this->render('persona/detail.html.twig', [
+                'persona' => $persona
+            ]);
+        }
+    }
+
+    /**
+     * @Route("persona/new", name="persona_new")
+     */
+    public function createPersona(Request $request, UserInterface $user)
     {
         $persona = new Persona();
         $form = $this->createForm(PersonaType::class, $persona);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $persona->setCreatedAt(new \DateTime());
             $persona->setUser($user);
-
             $em = $this->getDoctrine()->getManager();
             $em->persist($persona);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('task_detail', ['id' => $persona->getId()]));
-
+            return $this->redirect($this->generateUrl('persona_detail', ['id' => $persona->getId()]));
         }
         return $this->render('persona/new.html.twig', array(
             'form' => $form->createView()
@@ -89,19 +106,5 @@ class PersonaController extends AbstractController
             'persona' => $persona,
             'form' => $form->createView(),
         ]);
-    }
-
-    /**
-     * @Route("/{id}", name="persona_delete", methods={"DELETE"})
-     */
-    public function delete(Request $request, Persona $persona): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$persona->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($persona);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('persona_index');
     }
 }

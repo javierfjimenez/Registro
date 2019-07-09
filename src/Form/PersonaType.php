@@ -19,7 +19,6 @@ class PersonaType extends AbstractType
             ->add('telefono')
             ->add('cedula')
             ->add('correo')
-            ->add('persona_id')
         ;
     }
 

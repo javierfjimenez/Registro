@@ -16,7 +16,6 @@ class Persona
      */
     private $id;
     /**
-     *
      * @var User
      * @ORM\ManyToOne(targetEntity="App\Entity\User",inversedBy="personas")
      * @ORM\JoinColumn(nullable=false)
@@ -59,10 +58,6 @@ class Persona
      */
     private $correo;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $persona_id;
 
     public function getId(): ?int
     {
@@ -153,25 +148,15 @@ class Persona
         return $this;
     }
 
-    public function getPersonaId(): ?int
-    {
-        return $this->persona_id;
-    }
-
-    public function setPersonaId(int $persona_id): self
-    {
-        $this->persona_id = $persona_id;
-
-        return $this;
-    }
-
-    public function getUser(): User
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
-    public function setUser(User $user): void
+    public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
     }
 }

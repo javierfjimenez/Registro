@@ -4,8 +4,9 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
+
 use Doctrine\ORM\Mapping as ORM;
-use phpDocumentor\Reflection\Types\Array_;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -54,7 +55,6 @@ class User implements UserInterface
      *
      */
     private $personas;
-
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -242,6 +242,37 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($persona->getUser() === $this) {
                 $persona->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Persona[]
+     */
+    public function getPersonaId(): Collection
+    {
+        return $this->personas;
+    }
+
+    public function addPersonaId(Persona $personas): self
+    {
+        if (!$this->personas->contains($personas)) {
+            $this->personas[] = $personas;
+            $personas->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePersonaId(Persona $personas): self
+    {
+        if ($this->$personas->contains($personas)) {
+            $this->$personas->removeElement($personas);
+            // set the owning side to null (unless already changed)
+            if ($personas->getUser() === $this) {
+                $personas->setUser(null);
             }
         }
 
