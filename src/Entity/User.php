@@ -4,8 +4,10 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -26,18 +28,17 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Regex("/[a-zA-Z ]+/")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Regex("/[a-zA-Z ]+/")
      */
     private $lastname;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $mesaelectoral;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -52,12 +53,17 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $correo;
-
+    private $password;
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Email(
+     *     message = "El correo '{{ value }}' no es valido",
+     *     checkMX = true
+     *     )
+     *
      */
-    private $password;
+    private $email;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Persona",mappedBy="user")
@@ -111,18 +117,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getMesaelectoral(): ?string
-    {
-        return $this->mesaelectoral;
-    }
-
-    public function setMesaelectoral(string $mesaelectoral): self
-    {
-        $this->mesaelectoral = $mesaelectoral;
-
-        return $this;
-    }
-
     public function getTelefono(): ?string
     {
         return $this->telefono;
@@ -147,69 +141,28 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getCorreo(): ?string
+    public function getEmail(): ?string
     {
-        return $this->correo;
+        return $this->email;
     }
 
-    public function setCorreo(string $correo): self
+    public function setEmail(string $email): self
     {
-        $this->correo = $correo;
+        $this->email = $email;
 
         return $this;
     }
 
-    /**
-     * Returns the roles granted to the user.
-     *
-     *     public function getRoles()
-     *     {
-     *         return ['ROLE_USER'];
-     *     }
-     *
-     * Alternatively, the roles might be stored on a ``roles`` property,
-     * and populated in any number of different ways when the user object
-     * is created.
-     *
-     * @return (Role|string)[] The user roles
-     */
-    public function getRoles()
+    public function getPassword(): ?string
     {
-        // TODO: Implement getRoles() method.
+        return $this->password;
     }
 
-    /**
-     * Returns the salt that was originally used to encode the password.
-     *
-     * This can return null if the password was not encoded using a salt.
-     *
-     * @return string|null The salt
-     */
-    public function getSalt()
+    public function setPassword(string $password): self
     {
-        // TODO: Implement getSalt() method.
-    }
+        $this->password = $password;
 
-    /**
-     * Returns the username used to authenticate the user.
-     *
-     * @return string The username
-     */
-    public function getUsername()
-    {
-        // TODO: Implement getUsername() method.
-
-    }
-
-    /**
-     * Removes sensitive data from the user.
-     *
-     * This is important if, at any given point, sensitive information like
-     * the plain-text password is stored on this object.
-     */
-    public function eraseCredentials()
-    {
-        // TODO: Implement eraseCredentials() method.
+        return $this;
     }
 
     /**
@@ -244,22 +197,61 @@ class User implements UserInterface
     }
 
     /**
-     * Returns the password used to authenticate the user.
+     * Returns the roles granted to the user.
      *
-     * This should be the encoded password. On authentication, a plain-text
-     * password will be salted, encoded, and then compared to this value.
+     *     public function getRoles()
+     *     {
+     *         return ['ROLE_USER'];
+     *     }
      *
-     * @return string The password
+     * Alternatively, the roles might be stored on a ``roles`` property,
+     * and populated in any number of different ways when the user object
+     * is created.
+     *
+     * @return (Role|string)[] The user roles
      */
-    public function getPassword()
+    public function getRoles()
     {
-        // TODO: Implement getPassword() method.
+        // TODO: Implement getRoles() method.
+        return array('ROLE_USER');
     }
 
-    public function setPassword(string $password): self
+    /**
+     * Returns the salt that was originally used to encode the password.
+     *
+     * This can return null if the password was not encoded using a salt.
+     *
+     * @return string|null The salt
+     */
+    public function getSalt()
     {
-        $this->password = $password;
-
-        return $this;
+        // TODO: Implement getSalt() method.
+        return null;
     }
+
+    /**
+     * Returns the username used to authenticate the user.
+     *
+     * @return string The username
+     */
+    public function getUsername()
+    {
+        // TODO: Implement getUsername() method.
+        return $this->email;
+    }
+
+    /**
+     * Removes sensitive data from the user.
+     *
+     * This is important if, at any given point, sensitive information like
+     * the plain-text password is stored on this object.
+     */
+
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
+    }
+
+
+
 }

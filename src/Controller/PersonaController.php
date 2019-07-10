@@ -3,23 +3,24 @@
 namespace App\Controller;
 
 use App\Entity\Persona;
-
 use App\Entity\User;
 use App\Form\PersonaType;
+use phpDocumentor\Reflection\Types\This;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\User\UserInterface;
 
+
 class PersonaController extends AbstractController
 {
     /**
-     * @Route("/persona", name="persona")
+     * @Route("/persona", name="persona", methods={"GET","POST"})
      */
     public function index()
     {
         $em = $this->getDoctrine()->getManager();
-        $persona_repo = $this->getDoctrine()->getRepository(User::class);
+        $persona_repo = $this->getDoctrine()->getRepository(Persona::class);
         $personas = $persona_repo->findBy([], ['id' => 'DESC']);
 
         return $this->render('persona/index.html.twig', [
@@ -46,17 +47,16 @@ class PersonaController extends AbstractController
     }
 
     /**
-     * @Route("persona/new", name="persona_new")
+     * @Route("persona/new", name="persona_new", methods={"GET","POST"})
      */
-    public function createTarea(Request $request, UserInterface $user)
+    public function createPersona(Request $request)
     {
         $persona = new Persona();
         $form = $this->createForm(PersonaType::class, $persona);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $persona->setUser($user);
-
+            $persona->setUser($this->getUser());
             $em = $this->getDoctrine()->getManager();
             $em->persist($persona);
             $em->flush();
@@ -96,7 +96,6 @@ class PersonaController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $em = $this->getDoctrine()->getManager();
             $em->persist($persona);
             $em->flush();

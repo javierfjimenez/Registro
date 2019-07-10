@@ -2,36 +2,25 @@
 
 <table>
     <tr>
-        <th>Tarea</th>
+        <th>Persona</th>
         <th>Prioridad</th>
         <th>Horas Presupuestadas</th>
         <th>Acciones</th>
     </tr>
 
-    {% for task in task %}
+    {% for persona in persona %}
         <tr>
-            <td>{{ task.title }}</td>
-            <td>
-                {% if task.priority == 'HIGH' %}
-                    {{ 'Alta' }}
+            <td>{{ persona.name }}</td>
 
-                {% elseif  task.priority == 'MEDIUM' %}
-                    {{ 'Media' }}
-
-                {% elseif  task.priority == 'LOW' %}
-                    {{ 'Baja' }}
-                {% endif %}
-            </td>
-            <td>{{ task.hours }}</td>
             <td class="button">
 
-                <a href="{{ path('task_detail',{'id':task.id}) }}" class="show">Ver</a>
+                <a href="{{ path('persona_detail',{'id':persona.id}) }}" class="show">Ver</a>
 
-                {% if app.user != null and task.user.id == app.user.id  %}
+                {% if app.user != null and persona.user.id == app.user.id  %}
 
-                    <a href="{{ path('task_edit',{'id':task.id}) }}" class="edit">Editar</a>
+                    <a href="{{ path('persona_edit',{'id':persona.id}) }}" class="edit">Editar</a>
 
-                    <a href="{{ path('task_delete',{'id':task.id}) }}" class="delete">Borrar</a>
+                    <a href="{{ path('persona_delete',{'id':persona.id}) }}" class="delete">Borrar</a>
 
                 {% endif %}
             </td>
@@ -40,5 +29,5 @@
 
 </table>
     {% else %}
-    <strong>No hay tareas por el momento</strong>
+    <strong>No hay Personas registradas por el momento</strong>
 {% endif %}

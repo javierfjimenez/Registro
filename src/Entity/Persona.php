@@ -53,25 +53,18 @@ class Persona
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $correo;
+    private $mesaelectoral;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $email;
 
     public function getId(): ?int
     {
         return $this->id;
     }
-
-    public function getUser(): ?string
-    {
-        return $this->user;
-    }
-
-    public function setUser(string $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
+    
     public function getName(): ?string
     {
         return $this->name;
@@ -92,18 +85,6 @@ class Persona
     public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
-
-        return $this;
-    }
-
-    public function getMesaelectoral(): ?string
-    {
-        return $this->mesaelectoral;
-    }
-
-    public function setMesaelectoral(string $mesaelectoral): self
-    {
-        $this->mesaelectoral = $mesaelectoral;
 
         return $this;
     }
@@ -144,15 +125,40 @@ class Persona
         return $this;
     }
 
-    public function getCorreo(): ?string
+    public function getEmail(): ?string
     {
-        return $this->correo;
+        return $this->email;
     }
 
-    public function setCorreo(string $correo): self
+    public function setEmail(string $email): self
     {
-        $this->correo = $correo;
+        $this->email = $email;
 
         return $this;
     }
+
+    public function getMesaelectoral(): ?string
+    {
+        return $this->mesaelectoral;
+    }
+
+    public function setMesaelectoral(string $mesaelectoral): self
+    {
+        $this->mesaelectoral = $mesaelectoral;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+    
 }
