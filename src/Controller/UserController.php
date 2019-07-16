@@ -43,18 +43,18 @@ class UserController extends AbstractController
         ]);
     }
 
-    public function login(AuthenticationUtils $authenticationUtils){
+    public function login(AuthenticationUtils $authenticationUtils)
+    {
         //Consegir el error si se produce al logear usuario
         $error = $authenticationUtils->getLastAuthenticationError();
         //Conseguir el ultimo usuario logeado
         $lastUserName = $authenticationUtils->getLastUsername();
 
 
-        return $this->render('user/login.html.twig',array(
-            'error' =>$error,
-            'last_username' =>$lastUserName
+        return $this->render('user/login.html.twig', array(
+            'error' => $error,
+            'last_username' => $lastUserName
         ));
-
 
 
     }
