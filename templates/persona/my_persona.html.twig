@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PersonaController!{% endblock %}
+{% block title %}Lista de Personas{% endblock %}
 
-    {% block body %}
+{% block body %}
 
-        <div class="example-wrapper">
-            <h2>Lista de Personas</h2>
+    <div class="example-wrapper">
+        <h2>Personas Registradas✅</h2>
 
+        {{ include ('includes/persona-list.html.twig') }}
 
-        </div>
-    {% endblock %}
-
+    </div>
+{% endblock %}

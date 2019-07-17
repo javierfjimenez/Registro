@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Todas Mis Personas{% endblock %}
+{% block title %}Todas mis Personas Registradas.{% endblock %}
 
 {% block body %}
 
     <div class="example-wrapper">
-        <h2>{{ persona.name }}</h2>
+        <h2>{{ persona.user.name }} | {{ persona.user.lastname }} </h2>
         <p class="data-task">
-            {{ persona.user.name }}  {{ persona.user.lastName }}  |
+            {{ persona.name }}
+            {{ persona.lastname }} | {{ persona.cedula }}
+
 
         </p>
     </div>
